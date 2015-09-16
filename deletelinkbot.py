@@ -26,6 +26,18 @@ print 'Will check for duplicates of this link: ' + check_link
 # Are there ways around this with capitalization?
 # Users can also alias a URL with a name so need to validate alias as well
 
+# Better explained here
+# Go through all the comments in a thread
+# Make a set of links (meaning no duplicates)
+# If comment already in set then delete that entire comment
+
+# Have to be careful about rate limit here
+# Put in time.sleep between calls or something to make sure
+# a single thread doesn't just keep running delete API calls
+# For the the more advanced way URLs can be broken up or what not
+# don't care about that for now, do the simple case of building
+# a set and checking against the set
+
 def run_bot():
   print("Grabbing subreddit...")
   subreddit = r.get_subreddit("myezpzbottester")
