@@ -16,7 +16,7 @@ username = f.readline().split('=')[-1].rstrip()
 password = f.readline().split('=')[-1].rstrip()
 f.close()
 
-# Prompts you for username and password in terminal
+# Login with values from file
 r.login(username = username, password = password)
 
 words_to_match = ['definately', 'defiantly', 'definantly', 'definatly']
