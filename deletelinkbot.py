@@ -26,10 +26,19 @@ print 'Will check for duplicates of this link: ' + check_link
 # Are there ways around this with capitalization?
 # Users can also alias a URL with a name so need to validate alias as well
 
+# Version 1
 # Better explained here
 # Go through all the comments in a thread
 # Make a set of links (meaning no duplicates)
 # If comment already in set then delete that entire comment
+# Reset the URL set when entering a new thread?
+
+# Version 2
+# Target specific threads only by title
+
+# Version 3
+# Notify mods of users that send the same link
+# Notify mods of multiple users sending the same link
 
 # Have to be careful about rate limit here
 # Put in time.sleep between calls or something to make sure
