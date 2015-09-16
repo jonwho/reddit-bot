@@ -1,0 +1,4 @@
+# Ignore some fools
+.DS_STORE
+*.swp
+creds
