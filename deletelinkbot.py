@@ -26,6 +26,10 @@ print 'Will check for duplicates of this link: ' + check_link
 # Are there ways around this with capitalization?
 # Users can also alias a URL with a name so need to validate alias as well
 
+# This bot should only run on threads that meet these requirements
+# Thread is posted by automoderator
+# Title has the keyword referral in it
+
 # Version 1
 # Better explained here
 # Go through all the comments in a thread
