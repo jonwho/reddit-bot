@@ -24,6 +24,7 @@ print 'Will check for duplicates of this link: ' + check_link
 # To block against smarter users who break url up
 # Strip whitespace and make one long string and check for substring contains
 # Are there ways around this with capitalization?
+# Users can also alias a URL with a name so need to validate alias as well
 
 def run_bot():
   print("Grabbing subreddit...")
