@@ -1,5 +1,6 @@
 import praw
 import time
+import os.path
 
 # Using semantic versioning MAJOR.MINOR.PATCH
 ua = "LinkDeleter 0.1.0 by /u/jonwhobot"
@@ -55,6 +56,17 @@ r.login(username = username, password = password)
 
 # Task: Open file to write and only write to file if thread passes criteria
 # f = open('filename', 'w') or something like that
+# Task: Open test subreddit and only pick threads made by a certain account
+# Task: Read the comments and validate expected hyperlinks
+#       Referral hyperlinks most likely have to be the same with https
+
+# Common variables
+automoderator = r.get_redditor('AutoModerator')
+myezpzbottester = r.get_subreddit('myezpzbottester')
+submission_id_set = set([line.strip() for line in open('submission_ids')])
+
+# this is for appending to the file, does not allow reading
+# file_submission_ids = open('submission_ids', 'a')
 
 def run_bot():
   print("Grabbing subreddit...")
@@ -65,6 +77,21 @@ def run_bot():
     comment_text = comment.body
     # decide on a strategy for checking duplicates
   print("Comments loop finished, time to sleep")
+
+# Perform the moderation task this bot was tasked to do:
+# Find duplicate links in comment thread
+# On finding a duplicate link remove each comment that contains that link
+def moderate():
+
+
+# Return true if the thread is submitted by AutoModerator and is the
+# official churning referral thread. Else false.
+# @return Boolean
+def submitted_by_automoderator(submission):
+  name = submission.author.name.encode('ascii', 'ignore')
+  if name == 'AutoModerator':
+    return True if 'Referral' in submission.title.encode('ascii', 'ignore')
+  return False
 
 def get_user():
   user = 'AutoModerator'
