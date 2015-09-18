@@ -111,7 +111,7 @@ def is_churning( submission ):
 # Check that the thread is the referral thread.
 # @return Boolean
 def is_referral_thread( submission ):
-  return 'buncha' in u_to_s(submission.title).lower()
+  return 'links' in u_to_s(submission.title).lower()
   #return 'referral' in u_to_s(submission.title).lower()
 
 # Convert unicode to a string and return it.
