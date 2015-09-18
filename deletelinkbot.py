@@ -62,6 +62,7 @@ r.login(username = username, password = password)
 
 # Common variables
 automoderator = r.get_redditor('AutoModerator')
+submissions = automoderator.get_submitted()
 myezpzbottester = r.get_subreddit('myezpzbottester')
 submission_id_set = set([line.strip() for line in open('submission_ids')])
 
@@ -69,9 +70,8 @@ submission_id_set = set([line.strip() for line in open('submission_ids')])
 # file_submission_ids = open('submission_ids', 'a')
 
 def run_bot():
-  print("Grabbing subreddit...")
-  subreddit = r.get_subreddit("myezpzbottester")
-  print("Grabbing comments...")
+  print("Check if thread by AutoModerator is in /r/churning")
+  if subreddit
   comments = subreddit.get_comments(limit=1)
   for comment in comments:
     comment_text = comment.body
@@ -107,6 +107,21 @@ def get_user():
 def get_comments(submission):
   return submission.comments
 
+# Check that the submission is in /r/churning subreddit.
+# @return Boolean
+def is_churning( submission ):
+  return u_to_s(submission.subreddit.display_name) == 'churning'
+
+# Check that the thread is the referral thread.
+# @return Boolean
+def is_referral_thread( submission ):
+  return 'referral' in u_to_s(submission.title).lower()
+
+# Convert unicode to a string and return it.
+# @return String
+def u_to_s( u_string ):
+  return u_string.encode('ascii', 'ignore')
+
 # Iterate over comments
 # for comment in comments:
 #   print comment
@@ -118,6 +133,7 @@ def print_methods(instance = None):
     for method in methods:
       print method
 
+# Method to print the data fields available to an instance of a class
 def print_fields(instance = None):
   if instance:
     fields = [f for f in dir(instance) if not callable(getattr(instance, f)) and not f.startswith('__')]
